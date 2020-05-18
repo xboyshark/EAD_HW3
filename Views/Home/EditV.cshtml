@@ -1,0 +1,32 @@
+﻿@model Donor.Models.donordata
+
+
+
+
+
+<html>
+<head>
+     <title>Edit Details</title>
+</head>
+<body>
+    <form method="post" action="~/Home/EditConfirm/@Model.Id" id="SignIN">
+        Name:<input type="text" value="@Model.name" name="name" id="name" size="20" required><br><br>
+        Phone Number:<input type="text" value="@Model.phNo" name="phoneNo" id="phoneNo" size="10" required><br>
+        <br>
+        Blood Group: <select name="blood" id="blood"  required>
+            <option value="@Model.bloodtype">@Model.bloodtype </option>
+            <option value="A+">A+ </option>
+            <option value="A-">A- </option>
+            <option value="B+">B+ </option>
+            <option value="B-">B- </option>
+            <option value="O+">O+ </option>
+            <option value="O-">O- </option>
+            <option value="AB+">AB+ </option>
+            <option value="AB-">AB- </option>
+        </select>
+        <input class="button" type="submit" value="Change"> &nbsp
+        
+    </form>
+    
+</body>
+</html>

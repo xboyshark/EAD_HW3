@@ -1,0 +1,47 @@
+﻿
+@model IEnumerable<Donor.Models.donordata>
+
+
+@{
+    ViewBag.Title = "View Donors Page";
+
+}
+
+
+<html>
+<head>
+    
+</head>
+<body>
+
+   
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>NAME</th>
+                <th>BLOOD TYPE</th>
+                <th>Phone No.</th>
+            </tr>
+        </thead>
+        <tbody id="DataSearching">
+            @foreach (var s in Model)
+            {
+            <tr>
+                <td>@s.name</td>
+                <td>@s.bloodtype</td>
+                <td>@s.phNo</td>
+                <td>
+                    <a href="/Home/EditV/@s.Id ">Edit</a>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+
+      
+
+</body>
+</html>

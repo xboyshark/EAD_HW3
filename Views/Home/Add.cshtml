@@ -1,0 +1,29 @@
+﻿@model Donor.Models.donordata
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h3>Enter Details To add in DB</h3>
+
+<form method="post" action="Addd" id="SignIN">
+    Name:<input type="text" placeholder="First name" name="name" id="name" size="20" required><br><br>
+    Phone Number:<input type="text" placeholder="Phone Number" name="phoneNo" id="phoneNo" size="10" required><br>
+    <br>
+    Blood Group: <select name="blood" id="blood" required>
+        <option value="A+">A+ </option>
+        <option value="A-">A- </option>
+        <option value="B+">B+ </option>
+        <option value="B-">B- </option>
+        <option value="O+">O+ </option>
+        <option value="O-">O- </option>
+        <option value="AB+">AB+ </option>
+        <option value="AB-">AB- </option>
+    </select>
+    <input class="button" type="submit" value="Add"> &nbsp
+    <input class="button" type="reset" value="Clear">
+</form>
+
+
+
+
