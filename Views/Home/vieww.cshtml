@@ -1,0 +1,125 @@
+﻿
+@model IEnumerable<Donor.Models.donordata>
+
+
+@{
+    ViewBag.Title = "View Donors Page";
+}
+
+
+
+<br />
+<br />
+@*<div class="container">
+        <b>Search By:</b>
+        <select id="SearchBy">
+            <option value="name">Name</option>
+          </select><br /><br />
+
+        @Html.TextBox("Search")<input type="submit" id="SearchBtn" value="Search" /><br /><br />
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>BLOOD TYPE</th>
+                    <th>Phone No.</th>
+                </tr>
+            </thead>
+            <tbody id="DataSearching">
+                @foreach (var s in Model)
+                {
+                    <tr>
+                        <td>@s.name</td>
+                        <td>@s.bloodtype</td>
+                        <td>@s.phNo</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("SearchBtn").click(function () {
+                    var SearchBy = $("#SearchBy").val();
+                    var SearchValue = $("#Search").val();
+                    var SetData = $("#DataSearching");
+                    SetData.html("");
+                    $.ajax({
+                        type: "post",
+                        url: "/Home/GetSearchingData?SearchBy=" + SearchBy + "&SearchValue=" + SearchValue,
+                        contentType: "html",
+                        success: function (result) {
+                            if (result.length == 0) {
+                                SetData.append('<tr style="color:red"><td colspan="3">No Match Data</td></tr>')
+                            }
+                            else {
+                                $.each(result, function (index, value) {
+                                    var Data = "<tr>" + "<td>" + value.name + "</td>" +
+                                        "<td>" + value.bloodtype + "</td>" +
+                                        "<td>" + value.phNo + "</td>"
+                                        + "</tr>";
+                                    SetData.append(Data);
+                                });
+                            }
+                        }
+                    });
+                });
+
+            });
+        </script>
+
+    </div>*@
+
+
+
+
+
+
+
+
+<form method="post" action="vieww" id="SignIN">
+    Blood Group: <select name="blood" id="blood" required>
+        <option value="A+">A+ </option>
+        <option value="A-">A- </option>
+        <option value="B+">B+ </option>
+        <option value="B-">B- </option>
+        <option value="O+">O+ </option>
+        <option value="O-">O- </option>
+        <option value="AB+">AB+ </option>
+        <option value="AB-">AB- </option>
+    </select>
+    <input class="button" type="submit" value="search"> &nbsp
+</form>
+
+@*<div id="d1"></div>
+
+    <script>
+        $('#bloodselect').change(function () {
+            var value = $('#bloodselect').val();
+            $('#d1').load('/home/category?cat=' + value);
+        }
+        );
+    </script>*@
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>NAME</th>
+            <th>BLOOD TYPE</th>
+            <th>Phone No.</th>
+        </tr>
+    </thead>
+    <tbody id="DataSearching">
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.name</td>
+                <td>@s.bloodtype</td>
+                <td>@s.phNo</td>
+            </tr>
+        }
+
+    </tbody>
+
+</table>
